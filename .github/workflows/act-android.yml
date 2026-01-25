@@ -46,13 +46,15 @@ jobs:
         shell: bash
         run: |
           _ref_all_=$(git log -1 --format='%H');
+          echo "_ref_all_:["$_ref_all_"]";
           # _ref_=$(echo ${_ref_all_::7});
           _ref_org_=${{ env.TAG_REF }};
           _ref_len_="${#_ref_org_}";
           _ref_=$(echo ${_ref_all_::$_ref_len_});
           # _prg_version_=$(grep "versionName " core/build.gradle | awk -F ' ' '{print $2}' | awk -F '"' '{print $2}');
           # echo "TAG_REF=$_ref_" >> $GITHUB_ENV;
-          _prg_version_=v$(grep "versionName " core/build.gradle | awk -F ' ' '{print $2}' | awk -F ''' '{print $2}');
+          _prg_version_=$(grep "versionName " core/build.gradle | awk -F ' ' '{print $2}');
+          eval _prg_version_=v$_prg_version_;
           echo "TAG_REF=$_ref_" >> $GITHUB_ENV;
           _build_=${{ env.TAG_BUILD }}.$_ref_;
           echo "TAG_BUILD=$_build_";
