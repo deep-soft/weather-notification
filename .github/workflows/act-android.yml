@@ -120,7 +120,7 @@ jobs:
         with:
           name: upload-artifact
           path: |
-            ./app-${{ env.PRG_NAME }}/build/outputs/apk/
+            ./core/build/outputs/apk/release/
 
 # full begin
       - name: Copy apk from outputs/
