@@ -2,8 +2,9 @@
 
 buildscript {
     repositories {
-        jcenter()
+//        jcenter()
         google()
+        mavenCentral()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$androidGradlePluginVersion"
@@ -12,8 +13,9 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+//        jcenter()
         google()
+        mavenCentral()
     }
     // https://medium.com/@ali.muzaffar/gradle-configure-variables-for-all-android-project-modules-in-one-place-5a6e56cd384e
     project.ext {

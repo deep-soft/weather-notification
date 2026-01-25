@@ -1,7 +1,8 @@
 buildscript {
     repositories {
-        jcenter()
+//        jcenter()
         google()
+        mavenCentral()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$androidGradlePluginVersion"
@@ -15,8 +16,8 @@ android {
     defaultConfig {
         minSdkVersion project.ext.minSdkVersion
         targetSdkVersion project.ext.targetSdkVersion
-        versionCode 62
-        versionName '0.3.14'
+        versionCode 65
+        versionName '0.3.15'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -36,28 +37,28 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
         }
     }
 }
 
-if (project.hasProperty('storeFile')) {
-    android.signingConfigs.release.storeFile = file(storeFile)
-}
-if (project.hasProperty('storePassword')) {
-    android.signingConfigs.release.storePassword = storePassword
-} else {
-    android.signingConfigs.release.storePassword = System.getenv('STORE_PASSWORD')
-}
-if (project.hasProperty('keyAlias')) {
-    android.signingConfigs.release.keyAlias = keyAlias
-}
-if (project.hasProperty('keyPassword')) {
-    android.signingConfigs.release.keyPassword = keyPassword
-} else {
-    android.signingConfigs.release.keyPassword = System.getenv('KEY_PASSWORD')
-}
-
+// if (project.hasProperty('storeFile')) {
+//     android.signingConfigs.release.storeFile = file(storeFile)
+// }
+// if (project.hasProperty('storePassword')) {
+//     android.signingConfigs.release.storePassword = storePassword
+// } else {
+//     android.signingConfigs.release.storePassword = System.getenv('STORE_PASSWORD')
+// }
+// if (project.hasProperty('keyAlias')) {
+//     android.signingConfigs.release.keyAlias = keyAlias
+// }
+// if (project.hasProperty('keyPassword')) {
+//     android.signingConfigs.release.keyPassword = keyPassword
+// } else {
+//     android.signingConfigs.release.keyPassword = System.getenv('KEY_PASSWORD')
+// }
+// 
 //android.applicationVariants.all { variant ->
 //    task("${variant.name}Javadoc", type: Javadoc) {
 //        destinationDir = project.file("$project.buildDir/docs/javadoc/$project.name")
